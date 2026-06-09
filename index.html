@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ranjeeta ❤️</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --primary-pink: #ff758c;
+            --deep-purple: #4a148c;
+            --lavender: #e1bee7;
+            --rose-gold: #b76e79;
+            --white-glass: rgba(255, 255, 255, 0.12);
+            --text-color: #ffffff;
+        }
+
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a0a2e 0%, #301934 50%, #4b0082 100%);
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            line-height: 1.6;
+        }
+
+        /* --- PRELOADER --- */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: #000;
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+
+        .loader-heart {
+            font-size: 60px;
+            color: var(--primary-pink);
+            animation: pulse 1.2s infinite;
+            filter: drop-shadow(0 0 15px var(--primary-pink));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- LANDING SECTION --- */
+        #landing {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(255,117,140,0.1) 0%, transparent 70%);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            margin-bottom: 10px;
+            color: var(--lavender);
+            letter-spacing: 2px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            background: linear-gradient(to right, #ff758c, #ff7eb3, #e1bee7, #b76e79);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+            animation: zoomIn 2s ease;
+        }
+
+        .hero-date {
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            margin-top: 15px;
+            color: var(--rose-gold);
+            text-transform: uppercase;
+        }
+
+        .typewriter {
+            margin-top: 30px;
+            font-style: italic;
+            min-height: 50px;
+            max-width: 600px;
+            color: #ccc;
+        }
+
+        .btn-enter {
+            margin-top: 40px;
+            padding: 18px 45px;
+            border: none;
+            background: linear-gradient(45deg, var(--primary-pink), var(--rose-gold));
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 117, 140, 0.3);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            z-index: 100;
+        }
+
+        .btn-enter:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 117, 140, 0.5);
+        }
+
+        /* --- MUSIC PLAYER --- */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 12px 25px;
+            border-radius: 100px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 2000;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: none;
+        }
+
+        .music-btn {
+            background: var(--primary-pink);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- GLASS CONTAINER --- */
+        .glass-card {
+            background: var(--white-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: clamp(20px, 5vw, 60px);
+            margin: 60px auto;
+            max-width: 1000px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary-pink);
+        }
+
+        /* --- COUNTDOWN --- */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: clamp(10px, 3vw, 30px);
+            flex-wrap: wrap;
+        }
+
+        .countdown-box {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 20px;
+            min-width: 110px;
+            text-align: center;
+            border: 1px solid rgba(255,117,140,0.2);
+        }
+
+        .countdown-box span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-pink);
+        }
+
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--rose-gold), transparent);
+            top: 0; bottom: 0; left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .timeline-item.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        .timeline-content {
+            padding: 25px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--primary-pink);
+        }
+
+        /* --- PHOTO GRID --- */
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .memory-frame {
+            aspect-ratio: 4/5;
+            background: #111;
+            border: 10px solid #fff;
+            border-bottom: 50px solid #fff;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            transition: 0.5s;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .memory-frame:hover {
+            transform: scale(1.05) rotate(3deg);
+            z-index: 10;
+        }
+
+        .memory-frame::after {
+            content: '❤️ Ranjeeta';
+            position: absolute;
+            bottom: -45px;
+            width: 100%;
+            text-align: center;
+            color: #333;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.2rem;
+        }
+
+        /* --- REASONS CARDS --- */
+        .reasons-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .reason-card {
+            background: var(--white-glass);
+            padding: 12px 25px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+            cursor: default;
+        }
+
+        .reason-card:hover {
+            background: var(--primary-pink);
+            transform: translateY(-5px);
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* --- SURPRISE BUTTON --- */
+        .surprise-btn {
+            display: block;
+            margin: 60px auto;
+            padding: 25px 60px;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            border: none;
+            color: white;
+            border-radius: 100px;
+            cursor: pointer;
+            box-shadow: 0 0 30px rgba(255,0,204,0.4);
+            font-family: 'Dancing Script', cursive;
+            transition: 0.4s;
+        }
+
+        .surprise-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(255,0,204,0.7);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .floating-heart {
+            position: fixed;
+            color: var(--primary-pink);
+            pointer-events: none;
+            z-index: 999;
+            animation: floatUp 4s linear forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        }
+
+        canvas#fireworks {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5000;
+        }
+
+        /* --- MOBILE ADAPTATION --- */
+        @media (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 50px; text-align: left; }
+            .right { left: 0; }
+            .left { text-align: left; }
+            .music-player { bottom: 20px; right: 20px; padding: 10px 15px; }
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(0,0,0,0.4);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="loader">
+        <i class="fas fa-heart loader-heart"></i>
+    </div>
+
+    <!-- Hidden Audio -->
+    <audio id="bg-music" loop>
+        <!-- Standard placeholder: Replace with your Tere Naal file link -->
+        <source src="Tere Naal (Lyrics) - Bayaan, Sanah Moidutty, Vaibhav Pani.mp3" type="audio/mpeg">
+    </audio>
+
+    <canvas id="fireworks"></canvas>
+
+    <!-- Music Player UI -->
+    <div class="music-player" id="player-ui">
+        <button class="music-btn" onclick="toggleMusic()" id="play-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <div style="font-size: 11px;">
+            <b style="display:block">Tere Naal</b>
+            <span style="opacity:0.7">Bayaan & Sanah Moidutty</span>
+        </div>
+    </div>
+
+    <!-- Landing -->
+    <section id="landing">
+        <h2 class="hero-title">Happy Birthday My Love ❤️</h2>
+        <h1 class="hero-name">Ranjeeta</h1>
+        <p class="hero-date">10 JUNE</p>
+        <div class="typewriter" id="typewriter"></div>
+        <button class="btn-enter" onclick="startExperience()">Enter Her World</button>
+    </section>
+
+    <!-- Main Content -->
+    <div id="main-content" style="display: none;">
+        
+        <!-- Countdown -->
+        <section id="countdown-section" class="glass-card">
+            <h2 class="section-title">The Big Day Countdown</h2>
+            <div class="countdown-container">
+                <div class="countdown-box"><span id="days">00</span>Days</div>
+                <div class="countdown-box"><span id="hours">00</span>Hours</div>
+                <div class="countdown-box"><span id="minutes">00</span>Mins</div>
+                <div class="countdown-box"><span id="seconds">00</span>Secs</div>
+            </div>
+        </section>
+
+        <!-- Our Story Timeline -->
+        <section style="padding: 20px;">
+            <h2 class="section-title">Our Story Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>❤️ The Day I Saw You</h3>
+                        <p>From that very first moment, something about you stayed in my heart.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>❤️ College Days</h3>
+                        <p>Little conversations became unforgettable memories.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>❤️ Falling In Love</h3>
+                        <p>What started as friendship slowly became the most beautiful feeling.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>❤️ First Kiss</h3>
+                        <p><b>1 April</b><br>The most unforgettable day of my life. A memory I will cherish forever.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>❤️ Today</h3>
+                        <p>From the day I saw you till now, every moment is captured in my eyes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Grid -->
+        <section class="glass-card">
+            <h2 class="section-title">Every Moment Lives In My Heart</h2>
+            <p style="text-align: center; margin-bottom: 40px; opacity: 0.8;">The day I saw you till now, everything is captured in my eyes.</p>
+            <div class="memories-grid">
+                <div class="memory-frame" style="background-image: url('1.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('2.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('3.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('4.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('5.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('6.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('7.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('8.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('IMG20230510120637.jpg')"></div>
+                <div class="memory-frame" style="background-image: url('10.jpg')"></div>
+            </div>
+        </section>
+
+        <!-- Love Letter -->
+        <section class="glass-card">
+            <h2 class="section-title">My Dearest Ranjeeta</h2>
+            <div style="white-space: pre-line; font-family: 'Playfair Display', serif; line-height: 2; font-size: 1.1rem; text-align: center;">
+                My dearest Ranjeeta,
+
+                I don’t think words will ever be enough to express what you truly mean to me, but I still want to try—because you deserve to know how deeply you are loved.
+
+                From the moment you came into my life, everything started to feel different… better, warmer, more meaningful. You didn’t just become a part of my world—you became the reason it feels so beautiful. Your smile has this magic that can calm my storms, and your voice feels like home no matter how far we are.
+
+                I often find myself thinking about all our moments—the way we met, the little conversations that turned into something so special, and the bond that grew stronger without us even realizing it. Loving you feels so natural, like it was always meant to be.
+
+                You are not just my girlfriend, Ranjeeta… you are my peace, my strength, and my happiness. You make me want to be a better person every single day. Even when we are apart, you are always with me—in my thoughts, in my heart, in everything I do.
+
+                I promise to stand by you, to support you, to love you in every phase of life. No matter what happens, my feelings for you will always remain pure and true.
+
+                Thank you for being you… for loving me, understanding me, and choosing me.
+
+                I love you more than I can ever say.
+
+                <b>Yours forever,
+                Shubhranshu ❤️</b>
+            </div>
+        </section>
+
+        <!-- Birthday Message -->
+        <section class="glass-card" style="background: rgba(255, 117, 140, 0.05);">
+            <h2 class="section-title">Happy Birthday, Ranjeeta ❤️</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                <p>Today is not just another day—it’s the most special day for me because it gave the world someone who means everything to me. I feel incredibly lucky and grateful to have you in my life.</p><br>
+                <p>From the moment we met in college, I never imagined that you would become such an important part of my life. Slowly, beautifully, everything changed, and today I can’t imagine a single day without you.</p><br>
+                <p>You deserve all the happiness, success, and love in this world. Keep smiling always, keep shining, and keep being the beautiful soul that you are.</p>
+            </div>
+        </section>
+
+        <!-- Reasons -->
+        <section style="padding: 50px 20px; text-align: center;">
+            <h2 class="section-title">Reasons Why I Love You</h2>
+            <div class="reasons-container">
+                <div class="reason-card">❤️ Your Smile</div>
+                <div class="reason-card">❤️ Your Kindness</div>
+                <div class="reason-card">❤️ Your Caring Nature</div>
+                <div class="reason-card">❤️ Your Understanding</div>
+                <div class="reason-card">❤️ Your Support</div>
+                <div class="reason-card">❤️ Your Honesty</div>
+                <div class="reason-card">❤️ Your Laughter</div>
+                <div class="reason-card">❤️ Your Beautiful Heart</div>
+            </div>
+        </section>
+
+        <!-- Code Quote -->
+        <section class="glass-card" style="max-width: 600px; text-align: center;">
+            <p style="font-style: italic; margin-bottom: 20px;">"The world celebrates your birthday once a year, but my heart celebrates you every single day."</p>
+            <code style="color: var(--primary-pink); font-size: 1.2rem;">
+                if (Ranjeeta == Happy) { <br>
+                &nbsp;&nbsp;Shubhranshu = Happiest;<br>
+                }
+            </code>
+        </section>
+
+        <!-- Surprise Button -->
+        <button class="surprise-btn" onclick="triggerFullSurprise()">Click For A Surprise ❤️</button>
+
+        <section style="text-align: center; padding: 100px 20px;">
+            <h2 class="hero-name" style="font-size: 3.5rem;">Forever Yours,</h2>
+            <h2 class="hero-name" style="font-size: 3.5rem;">Shubhranshu ❤️</h2>
+            <p style="margin-top: 30px; opacity: 0.8;">May your life be filled with happiness, success, and love.</p>
+        </section>
+
+        <footer>
+            Made With ❤️ By Shubhranshu For Ranjeeta | © 2024
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        // 1. LOADER
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
+            }, 1500);
+        });
+
+        // 2. TYPEWRITER
+        const text = "The world celebrates your birthday once a year, but my heart celebrates you every single day. ❤️🎂";
+        let charIndex = 0;
+        function type() {
+            if (charIndex < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 60);
+            }
+        }
+
+        // 3. START EXPERIENCE
+        function startExperience() {
+            document.getElementById('landing').style.fadeOut = "slow";
+            setTimeout(() => {
+                document.getElementById('landing').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('player-ui').style.display = 'flex';
+                toggleMusic();
+                startCountdown();
+                initReveal();
+            }, 500);
+        }
+
+        // 4. MUSIC
+        const audio = document.getElementById('bg-music');
+        const playIcon = document.querySelector('#play-btn i');
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Autoplay blocked"));
+                playIcon.className = 'fas fa-pause';
+            } else {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+            }
+        }
+
+        // 5. COUNTDOWN
+        function startCountdown() {
+            const update = () => {
+                const now = new Date();
+                let year = now.getFullYear();
+                let bday = new Date(`June 10, ${year} 00:00:00`);
+                if (now > bday) bday = new Date(`June 10, ${year + 1} 00:00:00`);
+                
+                const diff = bday - now;
+                document.getElementById('days').innerText = Math.floor(diff / (1000*60*60*24));
+                document.getElementById('hours').innerText = Math.floor((diff / (1000*60*60)) % 24);
+                document.getElementById('minutes').innerText = Math.floor((diff / 1000 / 60) % 60);
+                document.getElementById('seconds').innerText = Math.floor((diff / 1000) % 60);
+            };
+            setInterval(update, 1000);
+            update();
+        }
+
+        // 6. SCROLL REVEAL
+        function initReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('reveal');
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.timeline-item').forEach(el => observer.observe(el));
+        }
+
+        // 7. SURPRISE (FIREWORKS + HEARTS + CONFETTI)
+        function triggerFullSurprise() {
+            // Confetti Cannon
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { y: 0.6 },
+                colors: ['#ff758c', '#ffffff', '#b76e79']
+            });
+
+            // Burst of hearts
+            for(let i=0; i<30; i++) {
+                setTimeout(() => {
+                    const h = document.createElement('div');
+                    h.className = 'floating-heart';
+                    h.innerHTML = '❤️';
+                    h.style.left = Math.random() * 100 + 'vw';
+                    h.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    document.body.appendChild(h);
+                    setTimeout(() => h.remove(), 4000);
+                }, i * 100);
+            }
+
+            alert("You are my today, my tomorrow, and my forever. ❤️");
+        }
+
+        // Start Typewriter
+        setTimeout(type, 2000);
+    </script>
+</body>
+</html>
